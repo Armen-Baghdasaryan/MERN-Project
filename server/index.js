@@ -33,7 +33,8 @@ async function start() {
   try {
     await mongoose.connect(
       // `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.fxlwlgn.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`,
-      `mongodb+srv://test:test123@cluster0.fxlwlgn.mongodb.net/mern-stack?retryWrites=true&w=majority`
+      // `mongodb+srv://test:test123@cluster0.fxlwlgn.mongodb.net/mern-stack?retryWrites=true&w=majority`
+      process.env.MONGO_URL
     );
 
     app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
