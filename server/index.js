@@ -24,6 +24,11 @@ app.use(express.json());
 app.use(express.static("uploads"));
 
 // Routes
+
+app.get("/", (req, res) => {
+  res.send("Server is already Connected");
+});
+
 // http://localhost:3002
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
