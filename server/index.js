@@ -22,7 +22,7 @@ mongoose
   .then((res) => console.log("Connected to DB"))
   .catch((err) => console.log(err));
 
-app.listen(process.env.PORT, (error) => {
+app.listen("https://mern-project-server.vercel.app/", (error) => {
   error
     ? console.log(error)
     : console.log(`Listening port ${process.env.PORT}`);
