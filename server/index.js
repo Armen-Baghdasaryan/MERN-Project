@@ -22,7 +22,7 @@ mongoose
   .then((res) => console.log("Connected to DB"))
   .catch((err) => console.log(err));
 
-app.listen("https://mern-project-server.vercel.app/", (error) => {
+app.listen(process.env.PORT, (error) => {
   error
     ? console.log(error)
     : console.log(`Listening port ${process.env.PORT}`);
@@ -40,6 +40,6 @@ app.get("/", (req, res) => {
 });
 
 // http://localhost:3002
-app.use("/api/auth", authRoute);
-app.use("/api/posts", postRoute);
-app.use("/api/comments", commentRoute);
+app.use("https://mern-project-server.vercel.app/api/auth", authRoute);
+app.use("https://mern-project-server.vercel.app/api/posts", postRoute);
+app.use("https://mern-project-server.vercel.app/api/comments", commentRoute);
