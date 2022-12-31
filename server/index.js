@@ -40,6 +40,6 @@ app.get("/", (req, res) => {
 });
 
 // http://localhost:3002
-app.use("https://mern-project-server.vercel.app/api/auth", authRoute);
-app.use("https://mern-project-server.vercel.app/api/posts", postRoute);
-app.use("https://mern-project-server.vercel.app/api/comments", commentRoute);
+app.use("/api/auth", authRoute);
+app.use("/api/posts", postRoute);
+app.use("/api/comments", commentRoute);
