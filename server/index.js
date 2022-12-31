@@ -34,17 +34,28 @@ app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/comments", commentRoute);
 
-async function start() {
-  try {
-    await mongoose.connect(
-      // `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.fxlwlgn.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`,
-      // `mongodb+srv://test:test123@cluster0.fxlwlgn.mongodb.net/mern-stack?retryWrites=true&w=majority`
-      process.env.MONGO_URL
-    );
+// async function start() {
+//   try {
+//     await mongoose.connect(
+//       // `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.fxlwlgn.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`,
+//       // `mongodb+srv://test:test123@cluster0.fxlwlgn.mongodb.net/mern-stack?retryWrites=true&w=majority`
+//       process.env.MONGO_URL
+//     );
 
-    app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
-  } catch (error) {
-    console.log(error);
-  }
-}
-start();
+//     app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
+mongoose
+  .connect(process.env.MONGO_URL, { useNewUrlParser: true })
+  .then((res) => console.log("Connected to DB"))
+  .catch((err) => console.log(err));
+
+app.listen(process.env.PORT, (error) => {
+  error
+    ? console.log(error)
+    : console.log(`Listening port ${process.env.PORT}`);
+});
+// start();
